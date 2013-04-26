@@ -87,10 +87,29 @@
 				//initiate class
 				$geolocation = new geolocation();
 				$location = $geolocation->geolocation();
+				$window_height = !empty($_COOKIE['window-height']) ? $_COOKIE['window-height'] : 0;
+				$window_width =  !empty($_COOKIE['window-width']) ? $_COOKIE['window-width'] : 0;
+				$screen_height = !empty($_COOKIE['screen-height']) ? $_COOKIE['screen-height'] : 0;
+				$screen_width =  !empty($_COOKIE['screen-width']) ? $_COOKIE['screen-width'] : 0;
+				$pixel_density = !empty($_COOKIE['pixel-density']) ? $_COOKIE['pixel-density'] : 1;
+				$screen_orientation = !empty($_COOKIE['screen-orientation']) ? $_COOKIE['screen-orientation'] : 0;
+				$night = !empty($_COOKIE['night']) ? $_COOKIE['night'] : 'no';
+				$eohc_reading_mode = !empty($_COOKIE['eohc-reading-mode']) ? $_COOKIE['eohc-reading-mode'] : 'quiet';
+				$eohc_bookmark = !empty($_COOKIE['eohc-bookmark']) ? $_COOKIE['eohc-bookmark'] : '';
+
 			
 	        	$context['params']['ua-latitude'] = $location['geoplugin_latitude'];
 	        	$context['params']['ua-longitude'] = $location['geoplugin_longitude'];
 	        	$context['params']['ua-country'] = $location['geoplugin_countryName'];
+				$context['params']['window-height'] = $window_height;
+				$context['params']['window-width'] = $window_width;
+				$context['params']['screen-height'] = $screen_height;
+				$context['params']['screen-width'] = $screen_width;
+				$context['params']['pixel-density'] = $pixel_density;
+				$context['params']['screen-orientation'] = $screen_orientation;
+				$context['params']['night'] = $night;
+				$context['params']['eohc-reading-mode'] = $eohc_reading_mode;
+				$context['params']['eohc-bookmark'] = $eohc_bookmark;
 			}
         }
 
